@@ -19,7 +19,6 @@ import {
 import type { Mocked, MockedObject } from 'vitest';
 import { vi } from 'vitest';
 import { mockDeep } from 'vitest-mock-extended';
-import { AZURE_POLICY_TYPES } from '../../../constants';
 import {
   REPOSITORY_ARCHIVED,
   REPOSITORY_NOT_FOUND,
@@ -1939,7 +1938,7 @@ describe('modules/platform/azure/index', () => {
                 isEnabled: true,
                 isBlocking: true,
                 type: {
-                  id: AZURE_POLICY_TYPES.MinimumNumberOfReviewers,
+                  id: 'fa4e907d-c16b-4a4c-9dfa-4906e5d171dd', // MinimumNumberOfReviewers
                 },
               },
               status: PolicyEvaluationStatus.Rejected,
@@ -1950,7 +1949,7 @@ describe('modules/platform/azure/index', () => {
                 isEnabled: true,
                 isBlocking: true,
                 type: {
-                  id: AZURE_POLICY_TYPES.WorkItemLinking,
+                  id: '40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e', // WorkItemLinking
                 },
               },
               status: PolicyEvaluationStatus.Rejected,
@@ -1969,8 +1968,8 @@ describe('modules/platform/azure/index', () => {
         strategy: 'auto',
         platformOptions: {
           azureBypassPolicyTypes: [
-            'MinimumNumberOfReviewers',
-            '40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e',
+            'fa4e907d-c16b-4a4c-9dfa-4906e5d171dd', // MinimumNumberOfReviewers
+            '40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e', // WorkItemLinking
           ],
         },
       });
@@ -2021,7 +2020,7 @@ describe('modules/platform/azure/index', () => {
                 isEnabled: true,
                 isBlocking: true,
                 type: {
-                  id: AZURE_POLICY_TYPES.Build,
+                  id: '0609b952-1397-4640-95ec-e00a01b2c241', // Build
                 },
               },
               status: PolicyEvaluationStatus.Queued,
@@ -2039,7 +2038,7 @@ describe('modules/platform/azure/index', () => {
         id: pullRequestIdMock,
         strategy: 'auto',
         platformOptions: {
-          azureBypassPolicyTypes: [AZURE_POLICY_TYPES.RequiredReviewers],
+          azureBypassPolicyTypes: ['fd2167ab-b0be-447a-8ec8-39368250530e'], // RequiredReviewers
         },
       });
 

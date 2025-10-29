@@ -1,4 +1,3 @@
-import { AZURE_POLICY_TYPES } from '../../constants';
 import { AllManagersListLiteral } from '../../manager-list.generated';
 import { getManagers } from '../../modules/manager';
 import { getCustomManagers } from '../../modules/manager/custom';
@@ -1284,15 +1283,12 @@ const options: RenovateOptions[] = [
   },
   {
     name: 'azureBypassPolicyTypes',
-    description: 'A list of policy type UUIDs allowed to be bypassed.',
+    description:
+      'A list of policy type UUIDs allowed to be bypassed. Commonly used UUIDs: `fd2167ab-b0be-447a-8ec8-39368250530e` (RequiredReviewers), `fa4e907d-c16b-4a4c-9dfa-4916e5d171ab` (RequireAMergeStrategy), `fa4e907d-c16b-4a4c-9dfa-4906e5d171dd` (MinimumNumberOfReviewers), `0609b952-1397-4640-95ec-e00a01b2c241` (Build), `40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e` (WorkItemLinking).',
     type: 'array',
     globalOnly: true,
     subType: 'string',
     allowString: true,
-    allowedValues: [
-      ...Object.values(AZURE_POLICY_TYPES),
-      ...Object.keys(AZURE_POLICY_TYPES),
-    ],
     default: [],
     supportedPlatforms: ['azure'],
   },
