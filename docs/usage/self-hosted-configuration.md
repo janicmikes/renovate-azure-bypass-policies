@@ -231,7 +231,7 @@ Add a list of policy UUIDs which might be failing but should not block auto-merg
 
 > For this to work the account that executes renovate must be allowed the `Bypass policies when completing pull requests` permission on the respective repository.
 
-Policy Types can be defined by their UUID or Name
+The following policy UUIDs are commonly used:
 
 | UUID                                 | Policy Type Name         |
 | ------------------------------------ | ------------------------ |
@@ -241,28 +241,17 @@ Policy Types can be defined by their UUID or Name
 | 0609b952-1397-4640-95ec-e00a01b2c241 | Build                    |
 | 40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e | WorkItemLinking          |
 
-For example:
+Example:
 
 ```json
 {
-  "azureAutoMergePoliciesBypass": [
-    "RequiredReviewers",
-    "MinimumNumberOfReviewers",
-    "WorkItemLinking"
-  ]
-}
-```
-
-Or by UUID (same result as above):
-
-```json
-{
-  "azureAutoMergePoliciesBypass": [
+  "azureBypassPolicyTypes": [
     "fd2167ab-b0be-447a-8ec8-39368250530e",
     "fa4e907d-c16b-4a4c-9dfa-4906e5d171dd",
     "40e92b44-2fe1-4dd6-b3d8-74a9c21d0c6e"
   ]
 }
+```
 ```
 
 ## baseDir

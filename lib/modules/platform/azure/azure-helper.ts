@@ -4,7 +4,6 @@ import type {
   GitRef,
 } from 'azure-devops-node-api/interfaces/GitInterfaces.js';
 import { GitPullRequestMergeStrategy } from 'azure-devops-node-api/interfaces/GitInterfaces.js';
-import { AZURE_POLICY_TYPES } from '../../../constants';
 import { logger } from '../../../logger';
 import { streamToString } from '../../../util/streams';
 import { getNewBranchName } from '../util';
@@ -154,7 +153,7 @@ export async function getMergeMethod(
     ).getPolicyConfigurations(
       project,
       undefined,
-      AZURE_POLICY_TYPES.RequireAMergeStrategy,
+      'fa4e907d-c16b-4a4c-9dfa-4916e5d171ab', // RequireAMergeStrategy
     )
   )
     .filter((p) => p.settings.scope.some(isRelevantScope))
